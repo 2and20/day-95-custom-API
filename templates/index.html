@@ -1,14 +1,18 @@
 
 {% include "header.html" %}
 
-<div class="container-fluid text-center">
-    <h2>Welcome to Cocktail World!</h2><br><br>
+<div class="justify-content-center text-center">
+    <h2 class="toptitle">Welcome to Cocktail World!</h2><br>
+</div>
+<div class="text-center">
+    <h1><span class="badge bg-success">{{ new_drink["drinks"][0]["strDrink"] }}</span></h1>
+    <br>
 </div>
 
 <div class="row">
 <div class="col-4 text-center">
-    {{ new_drink["drinks"][0]["strDrink"] }}<br><br>
-    Ingredients:<br>
+
+    Ingredients:<br><br>
     {% for ing in range(1,16) %}
         {% set ingred="strIngredient" ~ ing %}
         {% set measure="strMeasure" ~ ing %}
@@ -25,10 +29,10 @@ In a {{ new_drink["drinks"][0]["strGlass"] }}:<br><br>
 
 <div class="col-4 text-center">
     Et voila!<br><br>
-<img src="{{ new_drink['drinks'][0]['strDrinkThumb'] }}/preview">
+<img class="img-thumbnail" src="{{ new_drink['drinks'][0]['strDrinkThumb'] }}/preview">
 </div>
 </div>
-<br><br>
+
 
 <div class="container-fluid row">
     <div class="col-5">
