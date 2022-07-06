@@ -1,0 +1,59 @@
+
+{% include "header.html" %}
+
+<div class="container-fluid text-center">
+    <h2>Welcome to Cocktail World!</h2><br><br>
+</div>
+
+<div class="row">
+<div class="col-4 text-center">
+    {{ new_drink["drinks"][0]["strDrink"] }}<br><br>
+    Ingredients:<br>
+    {% for ing in range(1,16) %}
+        {% set ingred="strIngredient" ~ ing %}
+        {% set measure="strMeasure" ~ ing %}
+        {% if new_drink["drinks"][0][ingred] != None %}
+            {{ new_drink["drinks"][0][ingred] }} - {{ new_drink["drinks"][0][measure] }}<br>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+<div class="col-4 text-center">
+In a {{ new_drink["drinks"][0]["strGlass"] }}:<br><br>
+    {{ new_drink["drinks"][0]["strInstructions"] }}
+</div>
+
+<div class="col-4 text-center">
+    Et voila!<br><br>
+<img src="{{ new_drink['drinks'][0]['strDrinkThumb'] }}/preview">
+</div>
+</div>
+<br><br>
+
+<div class="container-fluid row">
+    <div class="col-5">
+        </div>
+<div class="col-2 text-center">Filter by Ingredient:<br>
+<!--    <div class="col-4">-->
+        <form method="POST">
+<select class="form-select" name="drinktype">
+    <option selected>Any</option>
+    <option value="vodka">Vodka</option>
+        <option value="gin">Gin</option>
+            <option value="rum">Rum</option>
+                <option value="bourbon">Bourbon</option>
+        <option value="Non_Alcoholic">Non-alcoholic</option>
+</select>
+            <input class="btn btn-primary" type="submit" value="Gimme another!">
+
+        </form>
+        </div>
+        <div class="col-5">
+        </div>
+    </div>
+
+
+
+
+
+{% include "footer.html" %}
